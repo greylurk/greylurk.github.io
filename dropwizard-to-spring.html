@@ -42,8 +42,8 @@
               modern java-based enterprise applications."
             </li>
             <li>
-              <a href="https://camel.apache.org">Apache Camel</a> is a 
-              "versatile open-source integration framework based on 
+              <a href="https://camel.apache.org">Apache Camel</a> is a
+              "versatile open-source integration framework based on
               known Enterprise Integration Patterns."
             </li>
           </ul>
@@ -55,9 +55,9 @@
             <li>We were already using Camel JMS, which is built on Spring
               JMS</li>
             <li>Springs support for termination protection is stronger</li>
-            <li>Spring is a bit more future proof</li>
+            <li>more future proof</li>
             <li>
-              Spring is an industry standard (Helps with Recruiting, 
+              Spring is an industry standard (Helps with Recruiting,
               Stack Overflow Searches)
             </li>
           </ul>
@@ -65,15 +65,14 @@
         <section>
           <h2>Hurdles we faced?</h2>
           <ul>
-            <li>We had to re-tool our SSM support, and customize the 
-              basic Spring Cloud Connection components</li>
-            <li>JDBI is idiomatic to DropWizard, but JDBC Templates are
-              idiomatic to Spring</li>
-            <li>The Weblogic Connector in <a href="https://github.com/spscommerce/sps-java-shared">sps-java-shared</a>
-              is coupled to Dropwizard, had to completely retool it for 
-              Spring</li>
+            <li><a href="https://github.com/spscomerce/sps-java-shared">sps-java-shared</a>
+              SSM support is Dropwizard specific. Customized Spring Cloud
+              Connection components</li>
+            <li>DropWizard uses JDBI, but Spring uses JDBC Templates</li>
+            <li>Weblogic Connector in <a href="https://github.com/spscommerce/sps-java-shared">sps-java-shared</a>
+              is coupled to Dropwizard</li>
             <li>Spring doesn't have native metrics, but <a href="https://micrometer.io/">micrometer</a> is almost a drop in replacement.</li>
-            <li>Configuration needed to be retooled from a YAML format into a different YAML or .properties file</a>
+            <li>Configuration moved a YAML format into a different YAML or .properties file</a>
           </ul>
         </section>
         <section>
