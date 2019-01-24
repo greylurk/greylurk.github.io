@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+          <h1>Case Study:</h1>
+          <h2>Replacing Dropwizard with Spring</h2>
+        </section>
+				<section>
+          <h2>What's a Dropwizard?</h2>
+          <ul>
+            <li>
+              <a href="https://dropwizard.io">Dropwizard</a> is "a java
+              framework for developing ops-friendly high performance
+              RESTful web services."
+            </li>
+            <li>
+              <a href="https://spring.io">Spring</a> Framework "provides
+              a comprehensive programming and configuration model for
+              modern java-based enterprise applications."
+            </li>
+            <li>
+              <a href="https://camel.apache.org">Apache Camel</a> is a 
+              "versatile open-source integration framework based on 
+              known Enterprise Integration Patterns."
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Why leave Dropwizard?</h2>
+          <ul>
+            <li>We weren't really writing RESTful webservices</li>
+            <li>We were already using Camel JMS, which is built on Spring
+              JMS</li>
+            <li>Springs support for termination protection is stronger</li>
+            <li>Spring is a bit more future proof</li>
+            <li>
+              Spring is an industry standard (Helps with Recruiting, 
+              Stack Overflow Searches)
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Hurdles we faced?</h2>
+          <ul>
+            <li>We had to re-tool our SSM support, and customize the 
+              basic Spring Cloud Connection components</li>
+            <li>JDBI is idiomatic to DropWizard, but JDBC Templates are
+              idiomatic to Spring</li>
+            <li>The Weblogic Connector in <a href="https://github.com/spscommerce/sps-java-shared">sps-java-shared</a>
+              is coupled to Dropwizard, had to completely retool it for 
+              Spring</li>
+            <li>Spring doesn't have native metrics, but <a href="https://micrometer.io/">micrometer</a> is almost a drop in replacement.</li>
+            <li>Configuration needed to be retooled from a YAML format into a different YAML or .properties file</a>
+          </ul>
+        </section>
+        <section>
+          <h2>Continuing Hurdles</h2>
+          <ul>
+            <li>Spring Boot Autodiscovery feels like magic</li>
+            <li>Lack of institutional knowledge around Spring</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Further reading?</h2>
+          <ul>
+            <li><a href="https://atlassian.spscommerce.com/wiki/display/TS/2019/01/23/Case+Study%3A+Replacing+Dropwizard+with+Spring">Blog post of this talk</a></li>
+            <li><a href="https://github.com/spscommerce/sps-spring-shared">sps-spring-shared</a></li>
+            <li><a href="https://github.com/spscommerce/toservice">ToService</a></li>
+            <li><a href="https://github.com/spscommerce/transformservice">TransformService</a></li>
+          </ul>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
