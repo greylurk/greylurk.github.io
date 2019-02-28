@@ -65,14 +65,13 @@
         <section>
           <h2>Hurdles we faced?</h2>
           <ul>
+            <li>Configuration moved a YAML format into a different YAML or .properties file</a>
             <li><a href="https://github.com/spscomerce/sps-java-shared">sps-java-shared</a>
-              SSM support is Dropwizard specific. Customized Spring Cloud
-              Connection components</li>
-            <li>DropWizard uses JDBI, but Spring uses JDBC Templates</li>
+              SSM support is Dropwizard specific. Needed new SSM support.</li>
             <li>Weblogic Connector in <a href="https://github.com/spscommerce/sps-java-shared">sps-java-shared</a>
               is coupled to Dropwizard</li>
+            <li>DropWizard uses JDBI, but Spring uses JDBC Templates</li>
             <li>Spring doesn't have native metrics, but <a href="https://micrometer.io/">micrometer</a> is almost a drop in replacement.</li>
-            <li>Configuration moved a YAML format into a different YAML or .properties file</a>
           </ul>
         </section>
         <section>
